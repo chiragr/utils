@@ -5,7 +5,7 @@ var mailTo =
 {
     "john.doe@gmail.com" :
     {
-        "address" : "Hi ", // You can use Dear here if you like! :) A Hi is mandatory. Everything else is optional.
+        "address" : "Hi ", // You can use Dear here if you like! :)
         "name" : "Jonny,", // Name
         "customMessage1" : "Hope you are doing great!",  // Custom message that will appear before commonMessageBody1
         "customMessage2" : "I will definitely miss you!" // custom message that will appear after commonMessageBody1 and before commonMessageBody2
@@ -44,7 +44,12 @@ for (var email in mailTo)
     var recipientDetails = mailTo[email];
 
     // Create message body using the fragments.
-    var messageBody = recipientDetails.address;
+    var messageBody = "";
+
+    if (recipientDetails.address && recipientDetails.address.length > 0)
+    {
+        messageBody = messageBody + recipientDetails.address;
+    }
 
     if (recipientDetails.name && recipientDetails.name.length > 0)
     {
