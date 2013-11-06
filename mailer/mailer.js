@@ -1,7 +1,7 @@
 var nodemailer = require('nodemailer');
 
 // Setup recipients
-var mailTo = 
+var mailTo =
 {
     "john.doe@gmail.com" :
     {
@@ -12,7 +12,7 @@ var mailTo =
     },
     "jane.doe@gmail.com" :
     {
-        "address" : "Dear ", 
+        "address" : "Dear ",
         "name" : "Jinny,",
         "customMessage1" : "Hope you are doing great!",
         "customMessage2" : "I will definitely miss you while having lunch!"
@@ -46,33 +46,33 @@ for (var email in mailTo)
     // Create message body using the fragments.
     var messageBody = recipientDetails.address;
 
-    if (recipientDetails.name && recipientDetails.name.length > 0) 
+    if (recipientDetails.name && recipientDetails.name.length > 0)
     {
         messageBody = messageBody + recipientDetails.name + "\n\n";
     }
 
-    if (recipientDetails.customMessage1 && recipientDetails.customMessage1.length > 0) 
+    if (recipientDetails.customMessage1 && recipientDetails.customMessage1.length > 0)
     {
         messageBody = messageBody + recipientDetails.customMessage1 + "\n\n";
     }
 
-    if (commonMessageBody1 && commonMessageBody1.length > 0) 
+    if (commonMessageBody1 && commonMessageBody1.length > 0)
     {
         messageBody = messageBody + commonMessageBody1;
     }
 
-    if (recipientDetails.customMessage2 && recipientDetails.customMessage2.length > 0) 
+    if (recipientDetails.customMessage2 && recipientDetails.customMessage2.length > 0)
     {
         messageBody = messageBody + recipientDetails.customMessage2 + "\n\n";
     }
 
-    if (commonMessageBody2 && commonMessageBody2.length > 0) 
+    if (commonMessageBody2 && commonMessageBody2.length > 0)
     {
         messageBody = messageBody + commonMessageBody2;
     }
-    
-    // Setup e-mail data 
-    var mailOptions = 
+
+    // Setup e-mail data
+    var mailOptions =
     {
         from: "Chirag <me.my@gmail.com>", // Sender address
         to: email,                        // Recipient address
