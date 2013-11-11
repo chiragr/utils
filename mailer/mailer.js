@@ -28,7 +28,7 @@
     {
         "jane.doe@gmail.com" :
         {
-            "address" : "hi ", // You can use Dear here if you like! :)
+            "address" : "Hi ", // You can use Dear here if you like! :)
             "name" : "Jane,",
             "customMessage1" : "Hope you are doing great!",
             "customMessage2" : "I will definitely miss you!"
@@ -40,7 +40,7 @@
     var commonMesssageSubject = "Bye ...";
 
     // Setup Message Body
-    var commonMessage1 = "Tomorrow is my last day at Froogle. I had a great time here!\n\n";
+    var commonMessage1 = "Tomorrow is my last day at Froogle. I had a great time here!";
     var commonMessage2 = "Personal Mail ID: john.doe@gmail.com\nPersonal Web Page: http://johndoe.me\n\nPlease do keep in touch!\n\nThank you!\nJohn";
 
     // Configure SMTP Server
@@ -81,7 +81,7 @@
 
         if (commonMessage1 && commonMessage1.length > 0)
         {
-            messageBody = messageBody + commonMessage1;
+            messageBody = messageBody + commonMessage1 + "\n\n";
         }
 
         if (recipientDetails.customMessage2 && recipientDetails.customMessage2.length > 0)
