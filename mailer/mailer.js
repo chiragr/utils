@@ -22,6 +22,7 @@
 
     // Setup Sender Name
     var senderName = "John Doe<john.doe@gmail.com>";
+    var replyToEmail = "john.doe@yahoo.com";
 
     // Setup Recipients
     var mailTo =
@@ -94,10 +95,15 @@
             messageBody = messageBody + commonMessage2;
         }
 
+        if (!replyToEmail)
+        {
+            replyToEmail = senderName;
+        }
         // Email data
         var mailOptions =
         {
             from: senderName,               // Sender address
+	    replyTo: replyToEmail,          // Reply To address
             to: email,                      // Recipient address
             subject: commonMesssageSubject, // Subject line
             text: messageBody               // Plaintext body
