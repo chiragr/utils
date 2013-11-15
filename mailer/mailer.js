@@ -103,7 +103,7 @@
         var mailOptions =
         {
             from: senderName,               // Sender address
-	    replyTo: replyToEmail,          // Reply To address
+            replyTo: replyToEmail,          // Reply To address
             to: email,                      // Recipient address
             subject: commonMesssageSubject, // Subject line
             text: messageBody               // Plaintext body
@@ -125,3 +125,4 @@
 
     smtpTransport.close(); // Shut down the connection pool
 })();
+
