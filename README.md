@@ -16,3 +16,19 @@ Steps to execute:
   2. Copy this file to a directory of your choice E.g.: ~/mailer.js
   3. Update sections that have comments starting with "Setup"
   4. Execute: node mailer.js
+  
+2) food/food.py
+
+"food.py" tells you what breakfast you should cook tomorrow morning. It randomly selects a breakfast item from the list of breakfast items provided in "food.json" and prints the name on screen. Once selected, the item will not repeat untill you have eaten all the items listed!
+
+Wrote this after I got tired of replying to my wife's perpetual question, "What should we have for breakfast tomorrow?"
+
+Steps to execute:
+  1. Install Python
+  2. Copy food.py and food.json in a directory of your choice
+  3. Check the list of breakfast items in food.json and add/remove items based on your liking
+  3. Execute: python food.py
+  4. Cook the breakitem listed next morning
+  5. Stay healthy!
+
+
