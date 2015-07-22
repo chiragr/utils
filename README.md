@@ -31,4 +31,14 @@ Steps to execute:
   4. Cook the breakitem listed next morning
   5. Stay healthy!
 
+3) airtel/data-bal.py
 
+"data-bal.py" prints/mails you your balance data and days for the current billing cycle. It is a good idea to add this script as a cron job.
+
+NOTE 1: This script is only for the Indian Airtel customers.
+NOTE 2: Currently it only prints the results. Mailing functionality can be added by the users.
+
+Steps to execute:
+  1. Install Python
+  2. Copy data-bal.py in a directory of your choice
+  3. Execute: data-bal.py
