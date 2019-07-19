@@ -16,11 +16,14 @@ print('Enter blank letter with (0) after the letter. For e.g.: T(0)IGER T(0)WO')
 print('-------------------------------------------------------------------------------------')
 print('-------------------------------------------------------------------------------------')
 
-# Scrabble points
+# Dic of Scrabble points
 LETTERPOINTDICT = {'a': 1, 'b': 3, 'c': 3, 'd': 2, 'e': 1, 'f': 4, 'g': 2, 'h': 4, 'i': 1, 'j': 8, 'k': 5, 'l': 1, 'm': 3, 'n': 1, 'o': 1, 'p': 3, 'q': 10, 'r': 1, 's': 1, 't': 1, 'u': 1, 'v': 4, 'w': 4, 'x': 8, 'y': 4, 'z': 10}
 
 # Set of valid characters
 VALIDCHARS = set('abcdefghijklmnopqrstuvwxyz023()[] ')
+
+# List of markup characters
+MARKUPCHARS = ['(', '0', '2', '3', ')', '[', ']']
 
 # Get the number of players
 while True:
@@ -82,14 +85,14 @@ while True:
                 if index in bonusletterindex:
                     letterbonus = int(letters[index+2])
                 
-                if letter not in ['(', '0', '2', '3', ')', '[', ']']:                    
+                if letter not in MARKUPCHARS:                    
                     wordpoints = wordpoints + LETTERPOINTDICT[letter] * letterbonus
 
             # Check if there is word bonus
             if letters[-1] == ']' and letters[-3] == '[':
                 wordpoints = wordpoints * int(letters[-2])
 
-            plainword = ''.join( c for c in word if  c not in ['(', '0', '2', '3', ')', '[', ']'])
+            plainword = ''.join( c for c in word if  c not in MARKUPCHARS)
             print(plainword.upper() + ' - ' + str(wordpoints))
 
             # Save the words
