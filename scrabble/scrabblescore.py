@@ -1,6 +1,8 @@
 #!/anaconda2/bin/python
 
 import re
+import json
+from datetime import datetime
 
 print('-------------------------------------------------------------------------------------')
 print('-------------------------------------------------------------------------------------')
@@ -46,6 +48,9 @@ runningpoints = [0] * numberofplayers
 
 print('-------------------------------------------------------------------------------------')
 
+# This list will save all the moves of the game
+game = []
+
 # Start the game
 while True:
     playerindex = 0
@@ -64,6 +69,7 @@ while True:
         # Blank tile will be denoted with (0) just after the letter
         # Double/Triple word is denoted with [2] or [3] just after the word
         turnpoints = 0
+        turnwords = []
         for word in words:
             bonusletters = list([m.start() for m in re.finditer('\([023]\)', word)])
             bonusletterindex = [index - 1 for index in bonusletters]
@@ -86,6 +92,12 @@ while True:
             plainword = ''.join( c for c in word if  c not in ['(', '0', '2', '3', ')', '[', ']'])
             print(plainword.upper() + ' - ' + str(wordpoints))
 
+            # Save the words
+            turnword = {}
+            turnword['PLAINWORD'] = plainword.upper()
+            turnword['WORDPOINTS'] = wordpoints
+            turnwords.append(turnword)
+
             turnpoints = turnpoints + wordpoints
 
         # Add bonus points if all tiles used
@@ -97,11 +109,16 @@ while True:
         # Soring the final points
         runningpoints[playerindex] = runningpoints[playerindex] + turnpoints
 
-        # TODO
-        # Need to store following info in a datastucture:
-        # Word with points, word stripped of points, turn points, running tally of final points
-        #turn = {}
-        #turn[WORDS] = words
+        # Save the turn data in a dictionary
+        turn = {}
+        turn['PLAYER'] = players[playerindex]
+        turn['TURNWORDS'] = turnwords
+        turn['BONUSPOINTS'] = bonuspoints
+        turn['TURNPOINTS'] = turnpoints
+        turn['RUNNINGPOINTS'] = runningpoints[playerindex]
+
+        # Append turn to game
+        game.append(turn)
 
         # Next player
         playerindex = playerindex + 1
@@ -122,3 +139,8 @@ while True:
         break
     
     print('-------------------------------------------------------------------------------------')
+
+# Save the game to a file
+filename = datetime.now().strftime('%d-%b-%Y-%H-%M') + '.txt'
+with open(filename, 'w') as gamefile:
+    gamefile.write(json.dumps(game))
