@@ -30,8 +30,8 @@ Steps to execute:
 - Execute: python food.py
 - Cook the breakitem listed next morning
 - Stay healthy!
-33
- airtel/data-bal.py
+
+## airtel/data-bal.py
 
 "data-bal.py" prints/mails you your balance data and days for the current billing cycle. It is a good idea to add this script as a cron job.
 
