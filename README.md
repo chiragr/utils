@@ -1,6 +1,5 @@
 # utils
 
-
 Small utilities that simplify life!
 
 ## mailer/mailer.js
