@@ -46,3 +46,4 @@ Steps to execute:
 ## scrabble/scrabblescore.py
 
 While we love to play Scrabble, it is a pain to keep track of the score. So I created a Scrabble Score keeper. It takes care of blanks, double/triple letters, double/triple words and bonus points.
+
