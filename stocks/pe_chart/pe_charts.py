@@ -61,7 +61,7 @@ def plot_moving_averages(data_dir, moving_average):
         yaxis=dict(showgrid=True, gridwidth=1, gridcolor='LightGray')
     )
 
-    fig.show()
+    fig.show(renderer='browser')
 
 if __name__ == '__main__':
     # Command-line argument parsing
